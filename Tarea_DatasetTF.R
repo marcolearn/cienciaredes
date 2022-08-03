@@ -67,27 +67,19 @@ mean_distance(net)
 Stucont_deg<-degree(net,mode=c("All"))
 V(net)$degree<-Stucont_deg
 V(net)$degree
-which.max(Stucont_deg)   #nodo con máximo grado
-which.min(Stucont_deg)  #nodo con mínimo grado
+which.max(Stucont_deg)   #nodo con mÃ¡ximo grado
+which.min(Stucont_deg)  #nodo con mÃ­nimo grado
 
 
 #Muestra los grafos conectados y elimina nodos aislados
 g <- set.vertex.attribute(net,"id",index=V(net),as.character(1:vcount(net)))
 # Selecciona el nodo de interes
 nodes.of.interest <- c(631)
-# Busca los grafos del nodo de interés
+# Busca los grafos del nodo de interÃ©s
 sel.nodes  <- bfs(g ,root = nodes.of.interest ,unreachable = FALSE)$order
 # Elimina los nodos aislados
 g.sub <- induced.subgraph(g , vids = sel.nodes[!is.na(sel.nodes)])
 plot(g.sub, edge.arrow.size=.3, edge.color="orange", vertex.color="gray50", vertex.size=2, vertex.label.color="red", vertex.label.cex=0.2, vertex.label.dist=.2, edge.curved=0.1)
-
-
-
-
-
-
-
-
 
 
 plot(net, edge.arrow.size=.5, vertex.color="green", vertex.size=10,
